@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Plan Generator</title>
+    <style>
+        /* Center the title */
+        h1 {
+            text-align: center;
+        }
+        /* Set background color and font family */
+        body {
+            background-color: #fafafa;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Center form on the page */
+        form {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* Style form labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="submit"] {
+            background-color: #00274C;
+            color: #FFCB05;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Set button color to blue and maize */
+        input[type="submit"]:hover {
+            background-color: rgba(0, 39, 76, 0.8);
+            color: #FFCB05;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Workout Plan Generator</h1>
+    <form action="/plan" method="POST">
+        <label for="goal">What is your workout goal?</label>
+        <input type="text" name="goal" required>
+
+        <label for="age">How old are you?</label>
+        <input type="number" name="age" required>
+
+        <label for="gender">What is your gender?</label>
+        <select name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="weight">What is your weight in pounds?</label>
+        <input type="number" name="weight" required>
+
+        <label for="experience">What is your workout experience level?</label>
+        <select name="experience" required>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <label for="days_per_week">How many days per week do you want to work out?</label>
+        <input type="number" name="days_per_week" required>
+
+        <label for="hours_per_training">How many hours per training session?</label>
+        <input type="text" name="hours_per_training" required pattern="^\d+(\.\d+)?$"><br>
+
+        <label for="place">Where do you prefer to work out?</label>
+        <select name="place" required>
+            <option value="gym">Gym</option>
+            <option value="home">Home</option>
+            <option value='outside'>Outside</option>
+        </select>
+
+        <input type="submit" value="Generate Workout Plan">
+    </form>
+</body>
+</html>
