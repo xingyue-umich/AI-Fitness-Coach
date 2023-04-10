@@ -2,15 +2,14 @@ from flask import Flask, request, render_template
 import openai
 
 app = Flask(__name__)
-# app.secret_key = 'mysecretkey'
+openai.api_key = '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'
 
-openai.api_key = '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'
-
-def create_plan_prompt(goal, days_per_week, hour_per_training, place, weight, age, gender, experience):
-    prompt = f"Create a weekly workout plan for the person who is {age} years old with {weight} lbs. This person's gender is {gender} and \
+def create_plan_prompt(goal, days_per_week, hour_per_training, place, weight, age, gender, experience, height):
+    prompt = f"Create a weekly workout plan for the person who is {age} years old, {height} feet tall, and weighs {weight} lbs. This person's gender is {gender} and \
     their workout experience level is {experience}. Their primary goal is to {goal}, and they want to work out {days_per_week} days per week,\
         each workout is around {hour_per_training} hours. They usually work out at {place}. Limit the plan to 8 actitivies per day."
     return prompt
+
 
 @app.route('/')
 def home():
@@ -23,12 +22,13 @@ def plan():
     age = request.form['age']
     gender = request.form['gender']
     weight = request.form['weight']
+    height = request.form['height']
     experience = request.form['experience']
     days_per_week = request.form['days_per_week']
     hours_per_training = request.form['hours_per_training']
     place = request.form['place']
 
-    prompt = create_plan_prompt(goal, days_per_week, hours_per_training, place, weight, age, gender, experience)
+    prompt = create_plan_prompt(goal, days_per_week, hours_per_training, place, weight, height, age, gender, experience)
 
     try:
         response = openai.Completion.create(
