@@ -18,7 +18,7 @@ The home page is where the user can input their personal information such as age
 
 ### Workout Plan Page
 
-The workout plan page generates a personalized workout plan for the user based on the information they provided on the home page. The plan is divided by day of the week and includes exercises, sets, reps, and rest time. If a day does not have a workout plan, it will display as "Rest day". The workout plan is limited to 10 lines per day to make it easier to read.
+The workout plan page generates a personalized workout plan for the user based on the information they provided on the home page. The plan is divided by day of the week and includes exercises, sets, reps, and rest time. If a day does not have a workout plan, it will display as "Rest day". The workout plan is limited to 8 lines per day to make it easier to read.
 
 The user can generate a new workout plan by clicking the "Generate New Plan" button.
 
